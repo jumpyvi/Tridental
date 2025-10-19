@@ -19,11 +19,10 @@ set -ouex pipefail
 
 
 
-dnf5 swap @gnome-desktop @cinnamon-desktop --exclude=firefox,lightdm,xfburn,xawtv,hexchat,thunderbird,gnome-calculator,slick-greeter,slick-greeter-cinnamon,simple-scan,gnome-terminal,gnome-calendar,transmission,transmission-gtk,yelp -y
+dnf5 swap @gnome-desktop @cinnamon-desktop --exclude=firefox,eog,lightdm,xfburn,xawtv,hexchat,thunderbird,gnome-calculator,slick-greeter,slick-greeter-cinnamon,simple-scan,gnome-terminal,gnome-calendar,transmission,transmission-gtk,yelp -y
 
-# Remove gnome-session after GDM is installed
-dnf5 remove -y gnome-session gnome-shell --noautoremove || true
+dnf5 remove -y gnome-session gdm gnome-shell || true
 
-sudo dnf5 install lxdm -y
-sudo systemctl enable lxdm
-sudo systemctl set-default graphical.target
+dnf5 install sddm -y
+systemctl enable sddm
+systemctl set-default graphical.target
