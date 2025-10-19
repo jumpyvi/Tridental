@@ -17,8 +17,10 @@ set -ouex pipefail
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-dnf5 group install cinnamon-desktop -y
 
-#### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+dnf5 swap @gnome-desktop @cinnamon-desktop --exclude=firefox,lightdm,xfburn,xawtv,hexchat,thunderbird,gnome-calculator,slick-greeter,slick-greeter-cinnamon,simple-scan,gnome-terminal,gnome-calendar,transmission,transmission-gtk,yelp -y
+
+dnf5 install gdm -y
+
+systemctl enable gdm.service -f
