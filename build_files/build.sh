@@ -3,9 +3,9 @@
 set -ouex pipefail
 
 
-dnf5 swap @gnome-desktop @cinnamon-desktop --exclude=firefox,eom,xfburn,pidgin,xawtv,hexchat,thunderbird,gnome-calculator,simple-scan,gnome-terminal,gnome-calendar,transmission,transmission-gtk,yelp -y
+dnf5 swap @gnome-desktop @cinnamon-desktop --exclude=firefox,eom,xed,mpv,xreader,xfburn,pidgin,xawtv,hexchat,thunderbird,gnome-calculator,simple-scan,gnome-terminal,gnome-calendar,transmission,transmission-gtk,yelp -y
 
-dnf5 remove -y gnome-session gdm gnome-shell gnome-tweaks gnome-software gnome-tour evince shotwell || true
+dnf5 remove -y gnome-session gdm gnome-shell gnome-tweaks gnome-calendar gnome-software gnome-tour evince shotwell || true
 
 dnf5 install xorg-x11-server-Xorg evolution-ews-core cinnamon-calendar-server -y
 
