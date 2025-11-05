@@ -9,6 +9,10 @@ dnf5 remove -y gnome-session gdm gnome-shell nautilus gnome-tweaks gnome-calenda
 
 dnf5 install xorg-x11-server-Xorg evolution-ews-core cinnamon-calendar-server -y
 
+dnf copr enable kylegospo/webapp-manager -y
+dnf5 install --enablerepo=copr:copr.fedorainfracloud.org:kylegospo:webapp-manager webapp-manager -y
+
+
 cp /ctx/system_files/usr/etc/ublue-lightdm-workaround.sh /etc/ublue-lightdm-workaround.sh
 cp /ctx/system_files/usr/lib/systemd/system/ublue-lightdm-workaround.service /usr/lib/systemd/system/ublue-lightdm-workaround.service
 
